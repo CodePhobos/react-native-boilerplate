@@ -42,7 +42,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void show(String message, int duration) {
-        if (toast.equals(null)) {
+        if (toast == null) {
             toast = Toast.makeText(getReactApplicationContext(), message, duration);
         }
         toast.show();
