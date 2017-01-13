@@ -47,7 +47,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void cancel(String message, int duration) {
+    public void cancel() {
         toast.cancel();
     }
 }
