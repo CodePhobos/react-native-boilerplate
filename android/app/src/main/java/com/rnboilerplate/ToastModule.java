@@ -20,13 +20,15 @@ public class ToastModule extends ReactContextBaseJavaModule {
     private static final String DURATION_SHORT_KEY = "SHORT";
     private static final String DURATION_LONG_KEY = "LONG";
 
+    Toast toast;
+
     public ToastModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
     @Override
     public String getName() {
-        return "ToastAndroid";
+        return "ToastModule";
     }
 
     @Nullable
@@ -40,6 +42,12 @@ public class ToastModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void show(String message, int duration) {
-        Toast.makeText(getReactApplicationContext(), message, duration).show();
+        toast = Toast.makeText(getReactApplicationContext(), message, duration);
+        toast.show();
+    }
+
+    @ReactMethod
+    public void cancel(String message, int duration) {
+        toast.cancel();
     }
 }
